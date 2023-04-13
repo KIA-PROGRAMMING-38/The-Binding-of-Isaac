@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NormalFly
+  m_Controller: {fileID: 9100000, guid: c4199069b0f00f549841b45413dbf9f5, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: dd93f943f0202404db7a12919b70fc67, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dd93f943f0202404db7a12919b70fc67, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f95834dfcafb52141986fa0c7e7eb03d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 31ebe71e1808f564da2920386721658e, type: 2}
