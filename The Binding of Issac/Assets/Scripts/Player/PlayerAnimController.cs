@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAnimController : MonoBehaviour
@@ -9,6 +10,13 @@ public class PlayerAnimController : MonoBehaviour
 	[SerializeField]
 	Animator _animatorBody;
 
+	Vector2 moveMent;
+	PlayerInput _playerInput;
+
+	private void Awake()
+	{
+		_playerInput = GetComponent<PlayerInput>();
+	}
 	void Update()
     {
 		PlayerAnimationManager();

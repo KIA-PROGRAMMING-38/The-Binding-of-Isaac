@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f840775c74be4440a00789a5bc55888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _head: {fileID: 8252440113130515603}
+  _head: {fileID: 2053176222}
   _body: {fileID: 3502980114160670869}
   _headObject: {fileID: 1169381656890267025}
 --- !u!1 &1169381656890267025
@@ -73,11 +73,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8799465609594950627}
-  - component: {fileID: 8252440113130515603}
   - component: {fileID: 5954854814865450799}
   - component: {fileID: 396567037}
-  - component: {fileID: 396567036}
-  m_Layer: 0
+  - component: {fileID: 2053176222}
+  m_Layer: 8
   m_Name: Isaac_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +98,44 @@ Transform:
   m_Father: {fileID: 3502980114160670865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8252440113130515603
+--- !u!114 &5954854814865450799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169381656890267025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d69934f9bd116d46a1b712cd18d45d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpeed: 5
+  tearSpeed: 2
+  tearRange: 1.1
+  _tearsPrefabs: {fileID: 1031013836755633979, guid: 17b69b276d94f6e459263a2525c7b4eb, type: 3}
+--- !u!95 &396567037
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169381656890267025}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 492374f8c7d09944fbae50a8ae82a43c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!212 &2053176222
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +175,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: -648634923, guid: 26f3a3d6a17b823449a66362df82daa6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -151,59 +187,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5954854814865450799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169381656890267025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d69934f9bd116d46a1b712cd18d45d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shotSpeed: 0
-  tearSpeed: 2
-  tearRange: 1.1
-  _tearsPrefabs: {fileID: 1031013836755633979, guid: 17b69b276d94f6e459263a2525c7b4eb, type: 3}
---- !u!95 &396567037
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169381656890267025}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 492374f8c7d09944fbae50a8ae82a43c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &396567036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169381656890267025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d69934f9bd116d46a1b712cd18d45d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shotSpeed: 5
-  tearSpeed: 2
-  tearRange: 1.1
-  _tearsPrefabs: {fileID: 1031013836755633979, guid: 17b69b276d94f6e459263a2525c7b4eb, type: 3}
 --- !u!1 &3502980114160670864
 GameObject:
   m_ObjectHideFlags: 0

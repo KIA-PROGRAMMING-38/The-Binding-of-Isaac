@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2053176222, guid: aa6ba1b21212ebf47936dc0b7a3133b2, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3502980114160670864, guid: aa6ba1b21212ebf47936dc0b7a3133b2, type: 3}
       propertyPath: m_Name
       value: Issac_Body
@@ -3841,7 +3845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1801780698
 Transform:
   m_ObjectHideFlags: 0

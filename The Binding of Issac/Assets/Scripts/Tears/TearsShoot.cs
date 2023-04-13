@@ -10,7 +10,6 @@ public class TearsShoot : MonoBehaviour
 	public float shotSpeed;
 	public float tearSpeed = 2f;
 	public float tearRange = 1.1f;
-	private bool isDelay;
 
 	public GameObject _tearsPrefabs;
 	Animator _animator;
@@ -31,13 +30,8 @@ public class TearsShoot : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
-			if (!isDelay)
-			{
-				isDelay = true;
-				directionsIndex = 3;                   // 연속 클릭 방지 실험으로 잠시 구현한 코드
-				_animator.SetBool("leftFire", true);
-				StartCoroutine(AttackDelay());
-			}
+			directionsIndex = 3;
+			_animator.SetBool("leftFire", true);
 		}
 		else if (Input.GetKeyUp(KeyCode.LeftArrow))
 		{
@@ -83,12 +77,6 @@ public class TearsShoot : MonoBehaviour
 		rigid.AddForce(_directions[directionsIndex] * shotSpeed, ForceMode2D.Impulse);
 		tears.transform.position = transform.position;
 		tears.DestroyTears();
-	}
-
-	IEnumerator AttackDelay()
-	{
-		yield return new WaitForSeconds(0.3f);
-		isDelay = false;
 	}
 
 	private Tears CreateTear()
