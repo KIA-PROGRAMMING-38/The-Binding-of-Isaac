@@ -6,20 +6,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	// public float health { get { return currentHealth; }}
+	public float baseHealth = 3;
+	public float maxHealth = 12;
 	public float currentHealth;
+	public float currentMaxHealth;
+	public float attackPower = 3.5f;
 	public float moveSpeed = 5f;
-	public float friction = 2f;
 
-	public const float isaacBaseHealth = 3;
-	public const float maxHealth = 12;
-	public const float maxSpeed = 10f;
+	[SerializeField] private float maxSpeed = 10f;
+	[SerializeField] private float friction = 2f;
 
 	bool isDie = false;
 
-	Rigidbody2D _rigid;
-	PlayerInput _playerInput;
 	public GameObject _headObject;
 	private Animator _headAnimator;
+	Rigidbody2D _rigid;
+	PlayerInput _playerInput;
 
 	private void Awake()
 	{
@@ -29,14 +31,10 @@ public class PlayerController : MonoBehaviour
 	}
 	void Start()
     {
-		currentHealth = isaacBaseHealth;
+		currentHealth = baseHealth;
+		currentMaxHealth = baseHealth;
 		Debug.Log(currentHealth);
     }
-
-	void Update()
-	{
-		
-	}
 
     void FixedUpdate()
 	{
@@ -64,9 +62,16 @@ public class PlayerController : MonoBehaviour
 			Die();
 		}
 
-		currentHealth = Mathf.Clamp(currentHealth + health, 0, maxHealth);
-		Debug.Log(currentHealth + "/" + maxHealth);
-	}	
+		currentHealth = Mathf.Clamp(currentHealth + health, 0, currentMaxHealth);
+		Debug.Log(currentHealth + "/" + currentMaxHealth);
+	}
+
+	public void SetCurrnetMaxHealth(int health)
+	{
+		currentMaxHealth = Mathf.Clamp(currentMaxHealth + health, 0, maxHealth);
+		Debug.Log(currentMaxHealth);
+		Debug.Log(currentHealth + "/" + currentMaxHealth);
+	}
 
 	void Die()
 	{

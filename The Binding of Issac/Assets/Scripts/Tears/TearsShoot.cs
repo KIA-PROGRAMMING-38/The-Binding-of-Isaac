@@ -6,25 +6,40 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 public class TearsShoot : MonoBehaviour
-{ 
+{
 	public float shotSpeed;
 	public float tearSpeed = 2f;
-	public float tearRange = 1.1f;
+	public float tearRange;
 
 	public GameObject _tearsPrefabs;
 	Animator _animator;
-	Tears _tears;
 
-	private Vector2[] _directions = { Vector2.down, Vector2.up, Vector2.right, Vector2.left };
+	public Vector2[] _directions = { Vector2.down, Vector2.up, Vector2.right, Vector2.left };
 	private IObjectPool<Tears> _Pool;
-	
+	public int directionsIndex = -1;
+
 	void Start()
 	{
 		_animator = GetComponent<Animator>();
-		_Pool = new ObjectPool<Tears>(CreateTear, OnGetTear, OnReleaseTear, OnDestroyTear, maxSize: 20);	
+		_Pool = new ObjectPool<Tears>(CreateTear, OnGetTear, OnReleaseTear, OnDestroyTear, maxSize: 20);
 	}
 
 	void Update()
+	{
+		Shoot();
+	}
+
+	void FireTear()
+	{
+		var tears = _Pool.Get();
+		Rigidbody2D rigid = tears.GetComponent<Rigidbody2D>();
+		Vector2 direction = _directions[directionsIndex];
+		rigid.AddForce(direction * shotSpeed, ForceMode2D.Impulse);
+		tears.transform.position = transform.position;
+		tears.DestroyTears();
+	}
+
+	void Shoot()
 	{
 		_animator.SetFloat("AttackSpeed", tearSpeed);
 
@@ -66,17 +81,7 @@ public class TearsShoot : MonoBehaviour
 		else if (Input.GetKeyUp(KeyCode.UpArrow))
 		{
 			_animator.SetBool("upFire", false);
-		}		
-	}
-
-	int directionsIndex = -1;
-	void FireTear()
-	{
-		var tears = _Pool.Get();
-		Rigidbody2D rigid = tears.GetComponent<Rigidbody2D>();
-		rigid.AddForce(_directions[directionsIndex] * shotSpeed, ForceMode2D.Impulse);
-		tears.transform.position = transform.position;
-		tears.DestroyTears();
+		}
 	}
 
 	private Tears CreateTear()
