@@ -12,8 +12,19 @@ public class Tears : MonoBehaviour
 
 	private void Awake()
 	{
-		_tearsShoot = GetComponent<TearsShoot>();
+		_tearsShoot = GameObject.Find("Isaac_Head").GetComponent<TearsShoot>();
 		_animator = GetComponent<Animator>();
+	}
+
+	private void Update()
+	{
+		float distance = Vector2.Distance(transform.position, _tearsShoot.transform.position);
+
+		// 눈물이 발사된 후 일정 거리까지만 이동한 후에 비활성화
+		if (distance >= _tearsShoot.tearRange)
+		{
+			gameObject.SetActive(false);
+		}
 	}
 
 	public void SetManagedPool(IObjectPool<Tears> pool)
@@ -35,7 +46,7 @@ public class Tears : MonoBehaviour
 	{
 		if (!collision.gameObject.CompareTag("Player"))
 		{
-			_animator.SetBool("isHit", true);
+			_animator.SetTrigger("TearsEffect");
 			StartCoroutine(Effect());
 		}
 	}
@@ -43,6 +54,6 @@ public class Tears : MonoBehaviour
 	IEnumerator Effect()
 	{
 		yield return new WaitForSeconds(0.5f);
-		gameObject.SetActive(false);
+		gameObject.SetActive(false);	
 	}
 }

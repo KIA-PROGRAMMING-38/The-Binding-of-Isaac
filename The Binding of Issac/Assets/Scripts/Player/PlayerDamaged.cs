@@ -13,16 +13,6 @@ public class PlayerDamaged : MonoBehaviour
 	{
 		_headAnimator = _headObject.GetComponent<Animator>();
 	}
-	void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -34,6 +24,7 @@ public class PlayerDamaged : MonoBehaviour
 
     void OnDamaged()
     {
+        // ±ôºýÀÌ°Ô º¯°æÇØ¾ßÇÔ
         _head.color = new Color(1, 1, 1, 0.4f);
         _body.color = new Color(1, 1, 1, 0.4f);
 

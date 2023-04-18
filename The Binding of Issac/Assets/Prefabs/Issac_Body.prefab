@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4469652914345889876}
   m_Layer: 12
   m_Name: PlayerHitBox
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,9 +73,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8799465609594950627}
-  - component: {fileID: 5954854814865450799}
   - component: {fileID: 396567037}
   - component: {fileID: 2053176222}
+  - component: {fileID: 1284753244}
+  - component: {fileID: 5954854814865450799}
   m_Layer: 8
   m_Name: Isaac_Head
   m_TagString: Untagged
@@ -98,22 +99,6 @@ Transform:
   m_Father: {fileID: 3502980114160670865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5954854814865450799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169381656890267025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d69934f9bd116d46a1b712cd18d45d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shotSpeed: 5
-  tearSpeed: 2
-  tearRange: 1.1
-  _tearsPrefabs: {fileID: 1031013836755633979, guid: 17b69b276d94f6e459263a2525c7b4eb, type: 3}
 --- !u!95 &396567037
 Animator:
   serializedVersion: 5
@@ -187,6 +172,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1284753244
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169381656890267025}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00497365, y: 0.04476267}
+  serializedVersion: 2
+  m_Radius: 0.36405414
+--- !u!114 &5954854814865450799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169381656890267025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d69934f9bd116d46a1b712cd18d45d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpeed: 5
+  tearSpeed: 2
+  tearRange: 1.1
+  _tearsPrefabs: {fileID: 1031013836755633979, guid: 17b69b276d94f6e459263a2525c7b4eb, type: 3}
 --- !u!1 &3502980114160670864
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,8 +215,8 @@ GameObject:
   - component: {fileID: 3502980114160670865}
   - component: {fileID: 3502980114160670869}
   - component: {fileID: 3502980114160670868}
+  - component: {fileID: 2020894889211863021}
   - component: {fileID: 3502980114968090205}
-  - component: {fileID: 3502980114160670871}
   - component: {fileID: 3502980114160670870}
   - component: {fileID: 3063702395107466505}
   - component: {fileID: 4744106980606895674}
@@ -300,6 +317,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &2020894889211863021
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502980114160670864}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0018834472, y: -0.06753683}
+  serializedVersion: 2
+  m_Radius: 0.18241495
 --- !u!50 &3502980114968090205
 Rigidbody2D:
   serializedVersion: 4
@@ -321,22 +354,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &3502980114160670871
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3502980114160670864}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.000000029802322, y: -0.06787646}
-  serializedVersion: 2
-  m_Radius: 0.21985519
 --- !u!114 &3502980114160670870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +366,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6bd8f02e4c8314eb23dab6c36b3018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHealth: 3
+  maxHealth: 12
   currentHealth: 0
+  currentMaxHealth: 0
+  maxSpeed: 10
   moveSpeed: 4.5
   friction: 8
   _headObject: {fileID: 1169381656890267025}
