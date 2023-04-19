@@ -4,30 +4,55 @@ using UnityEngine;
 
 public class PlayerDamaged : MonoBehaviour
 {
-    public SpriteRenderer _head;
-    public SpriteRenderer _body;
-    public GameObject _headObject;
+    [SerializeField] 
+    private SpriteRenderer _head;
+	[SerializeField]
+	private SpriteRenderer _body;
+	[SerializeField]
+	private GameObject _headObject;
     private Animator _headAnimator;
+	private PlayerController _playerController;
+
+	public bool isInvincibleTime;
 
 	private void Awake()
 	{
+		_playerController = GetComponentInParent<PlayerController>();
 		_headAnimator = _headObject.GetComponent<Animator>();
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	public IEnumerator InvincibleTime()
 	{
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-			OnDamaged();
+		int countTime = 0;
+
+		while (countTime < 12)
+		{
+			if (countTime % 2 == 0)
+			{
+				_head.color = new Color32(255, 255, 255, 90);
+				_body.color = new Color32(255, 255, 255, 90);
+			}
+			else
+			{
+				_head.color = new Color32(255, 255, 255, 180);
+				_body.color = new Color32(255, 255, 255, 180);
+			}
+
+			yield return new WaitForSeconds(0.1f);
+
+			countTime++;
 		}
-    }
 
-    void OnDamaged()
-    {
-        // ±ôºýÀÌ°Ô º¯°æÇØ¾ßÇÔ
-        _head.color = new Color(1, 1, 1, 0.4f);
-        _body.color = new Color(1, 1, 1, 0.4f);
+		_head.color = new Color32(255, 255, 255, 255);
+		_body.color = new Color32(255, 255, 255, 255);
 
-        _headAnimator.SetTrigger("PlayerHit");
+		isInvincibleTime = false;
+
+		yield return null;
+	}
+
+	public void PlayHitAnim()
+	{
+		_headAnimator.SetTrigger("PlayerHit");
 	}
 }
