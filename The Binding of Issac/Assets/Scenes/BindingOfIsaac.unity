@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3502980114160670864, guid: aa6ba1b21212ebf47936dc0b7a3133b2, type: 3}
       propertyPath: m_Name
-      value: Issac_Body
+      value: Isaac_Body
       objectReference: {fileID: 0}
     - target: {fileID: 3502980114160670865, guid: aa6ba1b21212ebf47936dc0b7a3133b2, type: 3}
       propertyPath: m_RootOrder
@@ -3737,7 +3737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1031637937
 Transform:
   m_ObjectHideFlags: 0
@@ -4253,7 +4253,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 288486741, guid: 740e73c07056fe14cacb202de44fa202, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5110,6 +5110,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1801780698}
     m_Modifications:
+    - target: {fileID: 2096193524, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
+      propertyPath: _damage
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1157014422619589323, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
       propertyPath: m_Name
       value: Gaper

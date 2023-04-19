@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void SetHealth(int health)
+	public void SetHealth(float health)
 	{
 		currentHealth = Mathf.Clamp(currentHealth + health, 0, currentMaxHealth);
 		if (currentHealth <= 0)
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 		Debug.Log(currentHealth + "/" + currentMaxHealth);
 	}
 
-	public void SetCurrnetMaxHealth(int health)
+	public void SetCurrnetMaxHealth(float health)
 	{
 		currentMaxHealth = Mathf.Clamp(currentMaxHealth + health, 0, maxHealth);
 		Debug.Log(currentMaxHealth);

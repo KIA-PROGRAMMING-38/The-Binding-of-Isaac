@@ -7,7 +7,6 @@ public class Tears : MonoBehaviour
 {
 	Animator _animator;
 	Rigidbody2D _tearRigidbody;
-	TearsShoot _tearsShoot;
 
 	//[SerializeField] private Transform _originalPosition; // 떨어지기 시작할 지점
 	//[SerializeField] private Transform _dropPosition; //떨어질 지점
@@ -16,7 +15,6 @@ public class Tears : MonoBehaviour
 
 	private void Awake()
 	{
-		_tearsShoot = GameObject.Find("Isaac_Head").GetComponent<TearsShoot>();
 		_tearRigidbody = GetComponent<Rigidbody2D>();
 		_animator = GetComponent<Animator>();
 	}

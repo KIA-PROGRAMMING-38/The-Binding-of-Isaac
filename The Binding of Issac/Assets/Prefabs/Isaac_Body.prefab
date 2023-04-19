@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 3063702395107466505}
   - component: {fileID: 4744106980606895674}
   m_Layer: 7
-  m_Name: Issac_Body
+  m_Name: Isaac_Body
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
