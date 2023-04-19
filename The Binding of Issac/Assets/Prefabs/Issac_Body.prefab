@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4469652914345889876}
   m_Layer: 12
   m_Name: PlayerHitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,8 +202,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotSpeed: 5
   tearSpeed: 2
-  tearRange: 1.1
+  tearRange: 5
   _tearsPrefabs: {fileID: 1031013836755633979, guid: 17b69b276d94f6e459263a2525c7b4eb, type: 3}
+  _directions:
+  - {x: 0, y: -1}
+  - {x: 0, y: 1}
+  - {x: 1, y: 0}
+  - {x: -1, y: 0}
+  directionsIndex: -1
 --- !u!1 &3502980114160670864
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,8 +376,9 @@ MonoBehaviour:
   maxHealth: 12
   currentHealth: 0
   currentMaxHealth: 0
-  maxSpeed: 10
+  attackPower: 3.5
   moveSpeed: 4.5
+  maxSpeed: 10
   friction: 8
   _headObject: {fileID: 1169381656890267025}
 --- !u!114 &3063702395107466505

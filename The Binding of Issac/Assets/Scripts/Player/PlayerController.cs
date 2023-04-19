@@ -57,12 +57,12 @@ public class PlayerController : MonoBehaviour
 
 	public void SetHealth(int health)
 	{
+		currentHealth = Mathf.Clamp(currentHealth + health, 0, currentMaxHealth);
 		if (currentHealth <= 0)
 		{
 			Die();
 		}
 
-		currentHealth = Mathf.Clamp(currentHealth + health, 0, currentMaxHealth);
 		Debug.Log(currentHealth + "/" + currentMaxHealth);
 	}
 
