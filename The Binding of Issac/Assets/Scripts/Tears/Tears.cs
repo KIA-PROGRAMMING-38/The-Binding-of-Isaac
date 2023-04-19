@@ -6,24 +6,48 @@ using UnityEngine.Pool;
 public class Tears : MonoBehaviour
 {
 	Animator _animator;
+	Rigidbody2D _tearRigidbody;
 	TearsShoot _tearsShoot;
+
+	//[SerializeField] private Transform _originalPosition; // 떨어지기 시작할 지점
+	//[SerializeField] private Transform _dropPosition; //떨어질 지점
 
 	private IObjectPool<Tears> _managedPool;
 
 	private void Awake()
 	{
 		_tearsShoot = GameObject.Find("Isaac_Head").GetComponent<TearsShoot>();
+		_tearRigidbody = GetComponent<Rigidbody2D>();
 		_animator = GetComponent<Animator>();
 	}
 
-	private void Update()
-	{
-		float distance = Vector2.Distance(transform.position, _tearsShoot.transform.position);
+	float _elpasedTime;
+	[SerializeField]
+	float _dropTime;
+	[SerializeField]
+	float _dropSpeed;
+	bool _curved = false;
 
-		// 눈물이 발사된 후 일정 거리까지만 이동한 후에 비활성화
-		if (distance >= _tearsShoot.tearRange)
+	public Vector2 _moveDirection;
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (!collision.gameObject.CompareTag("Player"))
 		{
-			gameObject.SetActive(false);
+			_animator.SetBool("Burst", true);
+			_moveDirection.y = 0;
+		}
+	}
+
+	private void FixedUpdate()
+	{
+		_elpasedTime += Time.fixedDeltaTime;
+
+		if (_elpasedTime > _dropTime && _curved == false)
+		{ 
+			_animator.SetBool("Burst", true);
+			_tearRigidbody.velocity += _moveDirection;
+			_curved = true;
 		}
 	}
 
@@ -42,18 +66,20 @@ public class Tears : MonoBehaviour
 		Invoke("ReturnToPool", 3f);
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnDisable()
 	{
-		if (!collision.gameObject.CompareTag("Player"))
-		{
-			_animator.SetTrigger("TearsEffect");
-			StartCoroutine(Effect());
-		}
+		_animator.SetBool("Burst", false);
+		_curved = false;
+		_elpasedTime = 0;
 	}
 
-	IEnumerator Effect()
+	void OffAnim()
 	{
-		yield return new WaitForSeconds(0.5f);
-		gameObject.SetActive(false);	
+		gameObject.SetActive(false);
+	}
+
+	void StopTear()
+	{
+		_tearRigidbody.velocity = Vector2.zero;
 	}
 }
