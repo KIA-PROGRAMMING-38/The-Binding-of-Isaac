@@ -1,27 +1,33 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class MonsterController : MonoBehaviour
+public class GaperHitEffect : MonoBehaviour
 {
 	public float health;
-
-	PlayerController _playerController;
-	SpriteRenderer _spriteRenderer;
-	Rigidbody2D _monsterRb;
-	Collider2D _collider;
 	Animator _animator;
+
+	[SerializeField]
+	private SpriteRenderer _head;
+	[SerializeField]
+	private SpriteRenderer _body;
+
+	Rigidbody2D _monsterRb;
+	PlayerController _playerController;
+	Collider2D _gaperCD;
 
 	private void Awake()
 	{
-		_collider = GetComponent<Collider2D>();
+		_gaperCD = GetComponent<Collider2D>();
 		_animator = GetComponent<Animator>();
-		_spriteRenderer = GetComponent<SpriteRenderer>();
 		_monsterRb = GetComponent<Rigidbody2D>();
 		_playerController = GameObject.Find("Isaac_Body").GetComponent<PlayerController>();
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		Transform childObject = transform.Find("Gaper_Body");
 		if (collision.gameObject.CompareTag("tears"))
 		{
 			if (_playerController != null)
@@ -35,17 +41,20 @@ public class MonsterController : MonoBehaviour
 			if (health <= 0)
 			{
 				_animator.SetTrigger("Dead");
-			    _collider.enabled = false;
+				_gaperCD.enabled = false;
+				childObject.gameObject.SetActive(false);
 			}
 		}
 	}
 
 	IEnumerator DamageEffect()
 	{
-		_spriteRenderer.color = new Color32(255, 0, 0, 255);
+		_head.color = new Color32(255, 0, 0, 255);
+		_body.color = new Color32(255, 0, 0, 255);
 		yield return new WaitForSeconds(0.1f);
-		_spriteRenderer.color = new Color32(255, 255, 255, 255);
-		yield return new WaitForSeconds(0.1f);
+
+		_head.color = new Color32(255, 255, 255, 255);
+		_body.color = new Color32(255, 255, 255, 255);
 	}
 
 	void Dead()
@@ -53,4 +62,3 @@ public class MonsterController : MonoBehaviour
 		Destroy(gameObject);
 	}
 }
-

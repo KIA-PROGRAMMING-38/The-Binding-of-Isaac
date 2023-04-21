@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	// 현재 체력 상승
 	public void SetHealth(float health)
 	{
 		currentHealth = Mathf.Clamp(currentHealth + health, 0, currentMaxHealth);
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
 		Debug.Log(currentHealth + "/" + currentMaxHealth);
 	}
 
+	// 최대 체력 상승
 	public void SetCurrnetMaxHealth(float health)
 	{
 		currentMaxHealth = Mathf.Clamp(currentMaxHealth + health, 0, maxHealth);

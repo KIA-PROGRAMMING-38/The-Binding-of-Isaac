@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3502980114160670865, guid: aa6ba1b21212ebf47936dc0b7a3133b2, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3502980114160670865, guid: aa6ba1b21212ebf47936dc0b7a3133b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -442,10 +442,6 @@ PrefabInstance:
     - target: {fileID: 249730563159442197, guid: 4c4653fdfdbc00241836fb47ff5b78bf, type: 3}
       propertyPath: m_Name
       value: Gusher
-      objectReference: {fileID: 0}
-    - target: {fileID: 249730563159442197, guid: 4c4653fdfdbc00241836fb47ff5b78bf, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c4653fdfdbc00241836fb47ff5b78bf, type: 3}
@@ -3356,10 +3352,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pacer
       objectReference: {fileID: 0}
-    - target: {fileID: 2678690167395772886, guid: 4482d33f5df8e0a4e893e47c6ff31116, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4482d33f5df8e0a4e893e47c6ff31116, type: 3}
 --- !u!4 &785179199 stripped
@@ -3517,7 +3509,7 @@ Transform:
   - {fileID: 880933689}
   - {fileID: 121852892}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &880933688
 GameObject:
@@ -3737,7 +3729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1031637937
 Transform:
   m_ObjectHideFlags: 0
@@ -4507,10 +4499,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monstro
       objectReference: {fileID: 0}
-    - target: {fileID: 391097003995558671, guid: 6c5aa8cbb3c9ed9418ead399cb086b72, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c5aa8cbb3c9ed9418ead399cb086b72, type: 3}
 --- !u!1 &1560478052
@@ -4556,7 +4544,7 @@ Transform:
   m_Children:
   - {fileID: 625121275}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1572220978
 GameObject:
@@ -4851,10 +4839,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalFly
       objectReference: {fileID: 0}
-    - target: {fileID: 6183066447645239023, guid: 27c790a940b614f46bbb5724497b9805, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27c790a940b614f46bbb5724497b9805, type: 3}
 --- !u!1001 &1687853487
@@ -4867,10 +4851,6 @@ PrefabInstance:
     - target: {fileID: 6533058496482681459, guid: aaa522fa2e7b42041aabacd2890ec5e8, type: 3}
       propertyPath: m_Name
       value: Hopper
-      objectReference: {fileID: 0}
-    - target: {fileID: 6533058496482681459, guid: aaa522fa2e7b42041aabacd2890ec5e8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6533058496482681461, guid: aaa522fa2e7b42041aabacd2890ec5e8, type: 3}
       propertyPath: m_RootOrder
@@ -4971,11 +4951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8419812217126385272, guid: ee86c4088b08266498076ac4fbeb3755, type: 3}
       propertyPath: m_Name
-      value: AttackFly 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8419812217126385272, guid: ee86c4088b08266498076ac4fbeb3755, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: AttackFly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee86c4088b08266498076ac4fbeb3755, type: 3}
@@ -5110,10 +5086,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1801780698}
     m_Modifications:
-    - target: {fileID: 2096193524, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
-      propertyPath: _damage
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1157014422619589323, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
       propertyPath: m_Name
       value: Gaper
@@ -5162,14 +5134,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1318762187582474801, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
-      propertyPath: damage
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1318762187582474801, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
-      propertyPath: health
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
 --- !u!1 &1801780697
@@ -5208,7 +5172,7 @@ Transform:
   - {fileID: 438047315}
   - {fileID: 264511713}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1877786543
 GameObject:
@@ -5247,7 +5211,7 @@ Transform:
   - {fileID: 1281670413}
   - {fileID: 1176573000}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1926854359
 GameObject:
