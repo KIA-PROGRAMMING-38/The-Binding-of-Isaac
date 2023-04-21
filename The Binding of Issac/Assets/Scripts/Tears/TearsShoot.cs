@@ -28,7 +28,6 @@ public class TearsShoot : MonoBehaviour
 	void FireTear()
 	{
 		var tears = _Pool.Get();
-		tears._moveDirection.y = -5f;
 		Rigidbody2D rigid = tears.GetComponent<Rigidbody2D>();
 		Vector2 direction = _directions[directionsIndex];
 		rigid.AddForce(direction * shotSpeed, ForceMode2D.Impulse);

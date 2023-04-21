@@ -8,9 +8,6 @@ public class Tears : MonoBehaviour
 	Animator _animator;
 	Rigidbody2D _tearRigidbody;
 
-	//[SerializeField] private Transform _originalPosition; // 떨어지기 시작할 지점
-	//[SerializeField] private Transform _dropPosition; //떨어질 지점
-
 	private IObjectPool<Tears> _managedPool;
 
 	private void Awake()
@@ -26,7 +23,7 @@ public class Tears : MonoBehaviour
 	float _dropSpeed;
 	bool _curved = false;
 
-	public Vector2 _moveDirection;
+	[SerializeField] Vector2 _moveDirection;
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -62,6 +59,11 @@ public class Tears : MonoBehaviour
 	public void DestroyTears()
 	{
 		Invoke("ReturnToPool", 3f);
+	}
+
+	private void OnEnable()
+	{
+		_moveDirection.y = -3.5f;
 	}
 
 	private void OnDisable()

@@ -11,13 +11,11 @@ public class PlayerDamaged : MonoBehaviour
 	[SerializeField]
 	private GameObject _headObject;
     private Animator _headAnimator;
-	private PlayerController _playerController;
 
 	public bool isInvincibleTime;
 
 	private void Awake()
 	{
-		_playerController = GetComponentInParent<PlayerController>();
 		_headAnimator = _headObject.GetComponent<Animator>();
 	}
 
