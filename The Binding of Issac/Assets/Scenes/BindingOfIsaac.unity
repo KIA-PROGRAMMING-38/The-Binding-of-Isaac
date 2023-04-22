@@ -443,6 +443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gusher
       objectReference: {fileID: 0}
+    - target: {fileID: 249730563159442197, guid: 4c4653fdfdbc00241836fb47ff5b78bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c4653fdfdbc00241836fb47ff5b78bf, type: 3}
 --- !u!1 &173041258
@@ -3352,6 +3356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pacer
       objectReference: {fileID: 0}
+    - target: {fileID: 2678690167395772886, guid: 4482d33f5df8e0a4e893e47c6ff31116, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4482d33f5df8e0a4e893e47c6ff31116, type: 3}
 --- !u!4 &785179199 stripped
@@ -4183,7 +4191,7 @@ GameObject:
   - component: {fileID: 1294699879}
   - component: {fileID: 1294699878}
   m_Layer: 14
-  m_Name: levelitem_001_itemaltar_0
+  m_Name: SpawnItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4499,6 +4507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monstro
       objectReference: {fileID: 0}
+    - target: {fileID: 391097003995558671, guid: 6c5aa8cbb3c9ed9418ead399cb086b72, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c5aa8cbb3c9ed9418ead399cb086b72, type: 3}
 --- !u!1 &1560478052
@@ -4564,7 +4576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1572220979
 Transform:
   m_ObjectHideFlags: 0
@@ -4839,6 +4851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalFly
       objectReference: {fileID: 0}
+    - target: {fileID: 6183066447645239023, guid: 27c790a940b614f46bbb5724497b9805, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27c790a940b614f46bbb5724497b9805, type: 3}
 --- !u!1001 &1687853487
@@ -4851,6 +4867,10 @@ PrefabInstance:
     - target: {fileID: 6533058496482681459, guid: aaa522fa2e7b42041aabacd2890ec5e8, type: 3}
       propertyPath: m_Name
       value: Hopper
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533058496482681459, guid: aaa522fa2e7b42041aabacd2890ec5e8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6533058496482681461, guid: aaa522fa2e7b42041aabacd2890ec5e8, type: 3}
       propertyPath: m_RootOrder
@@ -4952,6 +4972,10 @@ PrefabInstance:
     - target: {fileID: 8419812217126385272, guid: ee86c4088b08266498076ac4fbeb3755, type: 3}
       propertyPath: m_Name
       value: AttackFly
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419812217126385272, guid: ee86c4088b08266498076ac4fbeb3755, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee86c4088b08266498076ac4fbeb3755, type: 3}
@@ -5090,6 +5114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gaper
       objectReference: {fileID: 0}
+    - target: {fileID: 1157014422619589323, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1157014422619589364, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5100,7 +5128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1157014422619589364, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.29
+      value: -1.03
       objectReference: {fileID: 0}
     - target: {fileID: 1157014422619589364, guid: fd46a794930d45b4e98a4192bf45527b, type: 3}
       propertyPath: m_LocalPosition.z

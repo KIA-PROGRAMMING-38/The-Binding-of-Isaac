@@ -58,4 +58,12 @@ public class PlayerAnimController : MonoBehaviour
 		else if (Input.GetKeyUp(KeyCode.S))
 			_animatorHead.SetBool("lookDown", false);
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Items"))
+		{
+			_animatorHead.SetTrigger("GetItem");
+		}
+	}
 }
