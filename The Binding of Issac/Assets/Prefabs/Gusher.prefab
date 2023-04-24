@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 3175718452016508551}
   - component: {fileID: 8305116461294862436}
   - component: {fileID: 1953978433}
+  - component: {fileID: 1953978434}
   m_Layer: 11
   m_Name: Gusher
   m_TagString: Enemy
@@ -280,3 +281,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0.5
+--- !u!114 &1953978434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249730563159442197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d48fd594262414e87a402bf114f419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1

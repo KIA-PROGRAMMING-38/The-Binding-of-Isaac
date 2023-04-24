@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1960197456}
   - component: {fileID: 7746772668278695773}
   - component: {fileID: 1693929123}
+  - component: {fileID: 1043302294}
   m_Layer: 11
   m_Name: Pacer
   m_TagString: Enemy
@@ -173,3 +174,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0.5
+--- !u!114 &1043302294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2678690167395772886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d48fd594262414e87a402bf114f419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2

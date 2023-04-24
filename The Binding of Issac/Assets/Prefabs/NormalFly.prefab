@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6183066447645239019}
   - component: {fileID: 6183066447645239018}
   - component: {fileID: 1282771244867564068}
+  - component: {fileID: 1892538141}
   m_Layer: 11
   m_Name: NormalFly
   m_TagString: Enemy
@@ -169,3 +170,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+--- !u!114 &1892538141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183066447645239023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb066b025103064295006170e07c1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  target: {fileID: 0}
