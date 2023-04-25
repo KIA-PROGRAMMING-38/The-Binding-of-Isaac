@@ -10,9 +10,12 @@ public class MonsterController : MonoBehaviour
 	Rigidbody2D _monsterRb;
 	Collider2D _collider;
 	Animator _animator;
+	WaitForSeconds _waitForSeconds;
+
 
 	private void Awake()
 	{
+		_waitForSeconds = new WaitForSeconds(0.1f);
 		_collider = GetComponent<Collider2D>();
 		_animator = GetComponent<Animator>();
 		_spriteRenderer = GetComponent<SpriteRenderer>();
@@ -43,14 +46,15 @@ public class MonsterController : MonoBehaviour
 	IEnumerator DamageEffect()
 	{
 		_spriteRenderer.color = new Color32(255, 0, 0, 255);
-		yield return new WaitForSeconds(0.1f);
+		yield return _waitForSeconds;
+
 		_spriteRenderer.color = new Color32(255, 255, 255, 255);
-		yield return new WaitForSeconds(0.1f);
+		yield return _waitForSeconds;
 	}
 
 	void Dead()
 	{
-		Destroy(gameObject);
+		gameObject.SetActive(false);
 	}
 
 	void Stop()

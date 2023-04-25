@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Pool;
+
 
 public class MonstroController : MonoBehaviour
 {
@@ -14,7 +14,6 @@ public class MonstroController : MonoBehaviour
 	private Rigidbody2D _rigid;
 	private Animator _animaotr;
 	private Collider2D _collider;
-	private IObjectPool<BloodTear> _Pool;
 
 	private void Awake()
 	{
@@ -26,13 +25,11 @@ public class MonstroController : MonoBehaviour
 	void Start()
 	{
 		StartCoroutine(Think());
-		_Pool = new ObjectPool<BloodTear>(CreateTear, OnGetTear, OnReleaseTear, OnDestroyTear, maxSize:10);
 	}
 
 	void Update()
 	{
 		LookPlayer();
-		_player.transform.position = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
 	}
 
 	void LookPlayer()
@@ -80,11 +77,12 @@ public class MonstroController : MonoBehaviour
 	    _collider.enabled = false;
 		_animaotr.SetTrigger("JumpUp");
 
+		transform.position = new Vector2(playerPos.x, playerPos.y);
+
 		while (true)
 		{
 			if (transform.position.y >= 50f)
 			{
-				transform.position = new Vector2(playerPos.x, playerPos.y);
 				_animaotr.SetTrigger("JumpDown");
 				_rigid.velocity = Vector2.zero;
 				_collider.enabled = true;
@@ -97,27 +95,5 @@ public class MonstroController : MonoBehaviour
 		_animaotr.SetTrigger("JumpEnd");
 
 		StartCoroutine(Think());
-	}
-
-	private BloodTear CreateTear()
-	{
-		BloodTear bloodTears = Instantiate(_tearsPrefabs).GetComponent<BloodTear>();
-		bloodTears.SetManagedPool(_Pool);
-		return bloodTears;
-	}
-
-	private void OnGetTear(BloodTear bloodTears)
-	{
-		bloodTears.gameObject.SetActive(true);
-	}
-
-	private void OnReleaseTear(BloodTear bloodTears)
-	{
-		bloodTears.gameObject.SetActive(false);
-	}
-
-	private void OnDestroyTear(BloodTear bloodTears)
-	{
-		Destroy(bloodTears.gameObject);
 	}
 }
