@@ -12,12 +12,12 @@ public class PlayerAnimController : MonoBehaviour
 
 	void Update()
     {
-		PlayerAnimationManager();
+		PlayerMovement();
 		PlayerLookAt();
 	}
 
 	// 플레이어의 이동 방향에 따른 걷기 애니메이션 변경 기능
-	void PlayerAnimationManager()
+	void PlayerMovement()
 	{
 		if (Input.GetKey(KeyCode.A))
 			_animatorBody.SetBool("leftWalk", true);
@@ -62,8 +62,6 @@ public class PlayerAnimController : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Items"))
-		{
 			_animatorHead.SetTrigger("GetItem");
-		}
 	}
 }

@@ -52,5 +52,10 @@ public class MonsterController : MonoBehaviour
 	{
 		Destroy(gameObject);
 	}
+
+	void Stop()
+	{
+		_monsterRb.velocity = Vector2.zero;
+	}
 }
 

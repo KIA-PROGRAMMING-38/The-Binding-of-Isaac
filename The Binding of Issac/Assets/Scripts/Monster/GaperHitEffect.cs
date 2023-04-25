@@ -35,7 +35,6 @@ public class GaperHitEffect : MonoBehaviour
 				StartCoroutine(DamageEffect());
 				_monsterRb.velocity = Vector2.zero;
 				health -= _playerController.attackPower;
-				Debug.Log(health);
 			}
 
 			if (health <= 0)

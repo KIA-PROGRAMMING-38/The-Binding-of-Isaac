@@ -7,7 +7,7 @@ public class TearsShoot : MonoBehaviour
 	public float tearSpeed = 2f;
 	public float tearRange;
 
-	public GameObject _tearsPrefabs;
+	public Tears _tearsPrefabs;
 	Animator _animator;
 
 	public Vector2[] _directions = { Vector2.down, Vector2.up, Vector2.right, Vector2.left };

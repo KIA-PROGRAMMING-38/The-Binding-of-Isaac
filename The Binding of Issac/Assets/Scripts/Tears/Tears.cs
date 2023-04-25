@@ -5,6 +5,8 @@ using UnityEngine.Pool;
 
 public class Tears : MonoBehaviour
 {
+	public float _damage = 3.5f;
+
 	Animator _animator;
 	Rigidbody2D _tearRigidbody;
 
@@ -51,15 +53,16 @@ public class Tears : MonoBehaviour
 		_managedPool = pool;
 	}
 
+	public void DestroyTears()
+	{
+		Invoke("ReturnToPool", 3f);
+	}
+
 	public void ReturnToPool()
 	{
 		_managedPool.Release(this);
 	}
 
-	public void DestroyTears()
-	{
-		Invoke("ReturnToPool", 3f);
-	}
 
 	private void OnEnable()
 	{
