@@ -58,6 +58,6 @@ public class GaperHitEffect : MonoBehaviour
 
 	void Dead()
 	{
-		Destroy(gameObject);
+		gameObject.SetActive(false);
 	}
 }

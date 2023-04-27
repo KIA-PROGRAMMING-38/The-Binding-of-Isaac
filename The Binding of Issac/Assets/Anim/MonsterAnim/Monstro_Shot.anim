@@ -21,13 +21,15 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -282672028, guid: b67f496b537629d45a560dd0d60c0b11, type: 3}
-    - time: 0.5
+    - time: 0.33333334
+      value: {fileID: 1059022873, guid: b67f496b537629d45a560dd0d60c0b11, type: 3}
+    - time: 0.6666667
       value: {fileID: 1059022873, guid: b67f496b537629d45a560dd0d60c0b11, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 2
+  m_SampleRate: 3
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -43,6 +45,7 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -282672028, guid: b67f496b537629d45a560dd0d60c0b11, type: 3}
+    - {fileID: 1059022873, guid: b67f496b537629d45a560dd0d60c0b11, type: 3}
     - {fileID: 1059022873, guid: b67f496b537629d45a560dd0d60c0b11, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -68,11 +71,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.5
-    functionName: Attack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

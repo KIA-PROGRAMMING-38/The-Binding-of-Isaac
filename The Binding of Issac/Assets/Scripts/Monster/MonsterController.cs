@@ -5,6 +5,8 @@ public class MonsterController : MonoBehaviour
 {
 	public float health;
 
+	public bool isLive = false;
+
 	PlayerController _playerController;
 	SpriteRenderer _spriteRenderer;
 	Rigidbody2D _monsterRb;
@@ -38,6 +40,7 @@ public class MonsterController : MonoBehaviour
 			if (health <= 0)
 			{
 				_animator.SetTrigger("Dead");
+				isLive = true;
 			    _collider.enabled = false;
 			}
 		}
