@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class TearsShoot : MonoBehaviour
 {
@@ -7,17 +6,15 @@ public class TearsShoot : MonoBehaviour
 	public float tearSpeed = 2f;
 	public float tearRange;
 
-	public GameObject _tearsPrefabs;
+	public Tears _tearsPrefabs;
 	Animator _animator;
 
 	public Vector2[] _directions = { Vector2.down, Vector2.up, Vector2.right, Vector2.left };
-	private IObjectPool<Tears> _Pool;
 	public int directionsIndex = -1;
 
 	void Start()
 	{
 		_animator = GetComponent<Animator>();
-		_Pool = new ObjectPool<Tears>(CreateTear, OnGetTear, OnReleaseTear, OnDestroyTear, maxSize: 20);
 	}
 
 	void Update()
@@ -27,12 +24,11 @@ public class TearsShoot : MonoBehaviour
 
 	void FireTear()
 	{
-		var tears = _Pool.Get();
+		Transform tears = GameManager._instance._pool.Get(0).transform;
 		Rigidbody2D rigid = tears.GetComponent<Rigidbody2D>();
 		Vector2 direction = _directions[directionsIndex];
 		rigid.AddForce(direction * shotSpeed, ForceMode2D.Impulse);
 		tears.transform.position = transform.position;
-		tears.DestroyTears();
 	}
 
 	void Shoot()
@@ -78,27 +74,5 @@ public class TearsShoot : MonoBehaviour
 		{
 			_animator.SetBool("upFire", false);
 		}
-	}
-
-	private Tears CreateTear()
-	{
-		Tears tears = Instantiate(_tearsPrefabs).GetComponent<Tears>();
-		tears.SetManagedPool(_Pool);
-		return tears;
-	}
-
-	private void OnGetTear(Tears tears)
-	{
-		tears.gameObject.SetActive(true);
-	}
-
-	private void OnReleaseTear(Tears tears)
-	{
-		tears.gameObject.SetActive(false);
-	}
-
-	private void OnDestroyTear(Tears tears)
-	{
-		Destroy(tears.gameObject);
 	}
 }
