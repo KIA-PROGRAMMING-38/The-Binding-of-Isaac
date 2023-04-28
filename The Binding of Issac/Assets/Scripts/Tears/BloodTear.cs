@@ -36,15 +36,15 @@ public class BloodTear : MonoBehaviour
 			}
 		}
 	}
+	void OffAnim()
+	{
+		gameObject.SetActive(false);
+	}
 
 	void StopTear()
 	{
 		_tearRigidbody.velocity = Vector2.zero;
 	}
 
-	void OffAnim()
-	{
-		gameObject.SetActive(false);
-	}
 
 }

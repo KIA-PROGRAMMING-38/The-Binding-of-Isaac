@@ -13,6 +13,11 @@ public static class PlayerAnimID
 	public static readonly int LOOK_UP = Animator.StringToHash("lookUp");
 	public static readonly int LOOK_DOWN = Animator.StringToHash("lookDown");
 	public static readonly int Get_Item = Animator.StringToHash("GetItem");
+	public static readonly int LEFT_FIRE = Animator.StringToHash("leftFire");
+	public static readonly int RIGHT_FIRE = Animator.StringToHash("rightFire");
+	public static readonly int DOWN_FIRE = Animator.StringToHash("downFire");
+	public static readonly int UP_FIRE = Animator.StringToHash("upFire");
+	public static readonly int ATTACK_SPEED = Animator.StringToHash("AttackSpeed");
 }
 
 public class PlayerAnimController : MonoBehaviour
