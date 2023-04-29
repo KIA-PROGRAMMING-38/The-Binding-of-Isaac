@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MonstroController : MonoBehaviour
@@ -47,7 +48,7 @@ public class MonstroController : MonoBehaviour
 
 	IEnumerator Think()
 	{
-		if (_monsterController.isLive == false)
+		if (_monsterController.isLive == false && PlayerController.isDie == false)
 		{
 			yield return new WaitForSeconds(1f);
 

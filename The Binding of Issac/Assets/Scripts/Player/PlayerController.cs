@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	public static bool isDie = false;
+
 	// public float health { get { return currentHealth; }}
 	public float baseHealth = 3;
 	public float maxHealth = 12;
@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float maxSpeed = 10f;
 	[SerializeField] private float friction = 2f;
 
-	bool isDie = false;
 
 	public GameObject _headObject;
 	private Animator _headAnimator;
@@ -30,14 +29,15 @@ public class PlayerController : MonoBehaviour
 		_rigid = GetComponent<Rigidbody2D>();
 	}
 	void Start()
-    {
+	{
 		currentHealth = baseHealth;
 		currentMaxHealth = baseHealth;
 		Debug.Log(currentHealth);
-    }
+	}
 
-    void FixedUpdate()
+	void FixedUpdate()
 	{
+
 		Vector2 direction = new Vector2(_playerInput.Horizontal, _playerInput.Vertical).normalized;
 
 		if (direction.magnitude > 0f)
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
 		{
 			_rigid.velocity -= _rigid.velocity * friction * Time.fixedDeltaTime;
 		}
+
 	}
 
 	// 현재 체력 상승
@@ -77,6 +78,13 @@ public class PlayerController : MonoBehaviour
 
 	void Die()
 	{
+		isDie = true;
 		_headAnimator.SetTrigger("PlayerDead");
+		StartCoroutine(WatingDiesTime());
 	}
-}	
+
+	IEnumerator WatingDiesTime()
+	{
+		yield return new WaitForSeconds(1f);
+	}
+}

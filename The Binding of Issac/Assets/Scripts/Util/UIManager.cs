@@ -6,8 +6,9 @@ public class UIManager : MonoBehaviour
 {
 	public static bool isPaused = false;
 	public GameObject _menuSet;
+	public GameObject _DeadMenu;
 
-    void Update()
+	void Update()
     {
        
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -20,6 +21,11 @@ public class UIManager : MonoBehaviour
             {
 				Pause();
 			}
+		}
+
+		if (PlayerController.isDie == true)
+		{
+			StartCoroutine(WaitingMenu());
 		}
     }
 
@@ -40,5 +46,12 @@ public class UIManager : MonoBehaviour
 	public void QuitGame()
 	{
 
+	}
+
+	IEnumerator WaitingMenu()
+	{
+		yield return new WaitForSeconds(2f);
+		_DeadMenu.SetActive(true);
+		Time.timeScale = 0f;
 	}
 }
