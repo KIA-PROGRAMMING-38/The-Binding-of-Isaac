@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  isLive: 0
 --- !u!114 &1693929123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0e13ce968bb3e478003d406e5fac3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0.5
+  _damage: 1
 --- !u!114 &1043302294
 MonoBehaviour:
   m_ObjectHideFlags: 0

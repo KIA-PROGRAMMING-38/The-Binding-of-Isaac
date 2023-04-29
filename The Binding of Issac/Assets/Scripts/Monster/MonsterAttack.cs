@@ -3,7 +3,7 @@ using UnityEngine;
 public class MonsterAttack : MonoBehaviour
 {
 	PlayerDamaged _playerDamaged;
-	[SerializeField] private float _damage;
+	[SerializeField] private int _damage;
 
 	private void Awake()
 	{
