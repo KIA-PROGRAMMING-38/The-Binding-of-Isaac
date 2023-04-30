@@ -16,6 +16,7 @@ public class GaperHitEffect : MonoBehaviour
 	Rigidbody2D _monsterRb;
 	PlayerController _playerController;
 	Collider2D _gaperCD;
+	
 
 	private void Awake()
 	{
@@ -42,6 +43,7 @@ public class GaperHitEffect : MonoBehaviour
 				_animator.SetTrigger("Dead");
 				_gaperCD.enabled = false;
 				childObject.gameObject.SetActive(false);
+				FindObjectOfType<AudioManager>().Play("MonsterDeath");
 			}
 		}
 	}

@@ -102,6 +102,7 @@ public class MonstroController : MonoBehaviour
 		transform.position = targetPos;
 		_collider.enabled = true;
 		_animaotr.SetTrigger("MoveEnd");
+		FindObjectOfType<AudioManager>().Play("BossJumpDown");
 
 		yield return _waitForSeconds;
 		StartCoroutine(Think());
@@ -140,6 +141,7 @@ public class MonstroController : MonoBehaviour
 
 		_animaotr.SetTrigger("JumpEnd");
 		transform.position = new Vector2(playerPos.x, playerPos.y);
+		FindObjectOfType<AudioManager>().Play("BossJumpDown");
 
 		yield return _waitForSeconds;
 		StartCoroutine(Think());
@@ -157,10 +159,17 @@ public class MonstroController : MonoBehaviour
 			Rigidbody2D rigid = bloodTears.GetComponent<Rigidbody2D>();
 			rigid.velocity = direction * tearSpeed; // 총알 속도 설정
 		}
+
+		FindObjectOfType<AudioManager>().Play("BossAttack");
 	}
 
 	private void OnEnable()
 	{
 		//_player = GameManager._instance._player.GetComponent<Transform>();
+	}
+
+	void DeadSounds()
+	{
+		FindObjectOfType<AudioManager>().Play("BossDeath");
 	}
 }

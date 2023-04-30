@@ -46,5 +46,8 @@ public class BloodTear : MonoBehaviour
 		_tearRigidbody.velocity = Vector2.zero;
 	}
 
-
+	void BlockingSound()
+	{
+		FindObjectOfType<AudioManager>().Play("TearBlock");
+	}
 }

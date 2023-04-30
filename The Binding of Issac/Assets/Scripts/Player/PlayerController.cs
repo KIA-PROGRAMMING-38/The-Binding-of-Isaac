@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float maxSpeed = 10f;
 	[SerializeField] private float friction = 2f;
 
-
 	public GameObject _headObject;
 	private Animator _headAnimator;
 	Rigidbody2D _rigid;
@@ -37,23 +36,24 @@ public class PlayerController : MonoBehaviour
 
 	void FixedUpdate()
 	{
-
-		Vector2 direction = new Vector2(_playerInput.Horizontal, _playerInput.Vertical).normalized;
-
-		if (direction.magnitude > 0f)
+		if (isDie == false)
 		{
-			_rigid.velocity = direction * moveSpeed;
+			Vector2 direction = new Vector2(_playerInput.Horizontal, _playerInput.Vertical).normalized;
 
-			if (_rigid.velocity.magnitude > maxSpeed)
+			if (direction.magnitude > 0f)
 			{
-				_rigid.velocity = _rigid.velocity.normalized * maxSpeed;
+				_rigid.velocity = direction * moveSpeed;
+
+				if (_rigid.velocity.magnitude > maxSpeed)
+				{
+					_rigid.velocity = _rigid.velocity.normalized * maxSpeed;
+				}
+			}
+			else
+			{
+				_rigid.velocity -= _rigid.velocity * friction * Time.fixedDeltaTime;
 			}
 		}
-		else
-		{
-			_rigid.velocity -= _rigid.velocity * friction * Time.fixedDeltaTime;
-		}
-
 	}
 
 	// 현재 체력 상승
@@ -78,7 +78,10 @@ public class PlayerController : MonoBehaviour
 
 	void Die()
 	{
+		FindObjectOfType<AudioManager>().Play("PlayerDeath");
+		FindObjectOfType<AudioManager>().Stop("Theme");
 		isDie = true;
+		_rigid.velocity = Vector2.zero;
 		_headAnimator.SetTrigger("PlayerDead");
 		StartCoroutine(WatingDiesTime());
 	}

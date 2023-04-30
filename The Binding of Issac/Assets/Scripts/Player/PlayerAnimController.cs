@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public static class PlayerAnimID
@@ -28,7 +25,7 @@ public class PlayerAnimController : MonoBehaviour
 	Animator _animatorBody;
 
 	void Update()
-    {
+	{
 		PlayerMovement();
 		PlayerLookAt();
 	}
@@ -85,6 +82,9 @@ public class PlayerAnimController : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Items"))
+		{
 			_animatorHead.SetTrigger(PlayerAnimID.Get_Item);
+			FindObjectOfType<AudioManager>().Play("PlayerGet");
+		}
 	}
 }

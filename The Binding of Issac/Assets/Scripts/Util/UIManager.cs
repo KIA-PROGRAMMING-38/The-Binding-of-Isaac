@@ -52,6 +52,7 @@ public class UIManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(2f);
 		_DeadMenu.SetActive(true);
+		FindObjectOfType<AudioManager>().Play("PlayerDied");
 		Time.timeScale = 0f;
 	}
 }

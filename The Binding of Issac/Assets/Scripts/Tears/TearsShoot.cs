@@ -32,6 +32,8 @@ public class TearsShoot : MonoBehaviour
 			Vector2 direction = _directions[directionsIndex];
 			rigid.AddForce(direction * shotSpeed, ForceMode2D.Impulse);
 			tears.transform.position = transform.position;
+
+			FindObjectOfType<AudioManager>().Play("TearFire");
 		}
 	}
 

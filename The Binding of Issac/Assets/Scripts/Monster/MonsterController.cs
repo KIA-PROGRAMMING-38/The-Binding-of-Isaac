@@ -42,6 +42,7 @@ public class MonsterController : MonoBehaviour
 				_animator.SetTrigger("Dead");
 				isLive = true;
 			    _collider.enabled = false;
+				FindObjectOfType<AudioManager>().Play("MonsterDeath");
 			}
 		}
 	}

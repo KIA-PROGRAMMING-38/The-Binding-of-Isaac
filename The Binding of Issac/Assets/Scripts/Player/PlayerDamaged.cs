@@ -51,6 +51,7 @@ public class PlayerDamaged : MonoBehaviour
 
 	public void PlayHitAnim()
 	{
+		FindObjectOfType<AudioManager>().Play("PlayerHit");
 		_headAnimator.SetTrigger("PlayerHit");
 	}
 }

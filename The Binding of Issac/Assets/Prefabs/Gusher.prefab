@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   isLive: 0
+  _clip: {fileID: 8300000, guid: 00dc4af5638fd6b42b4bdc86260e6cf1, type: 3}
 --- !u!114 &1953978433
 MonoBehaviour:
   m_ObjectHideFlags: 0
