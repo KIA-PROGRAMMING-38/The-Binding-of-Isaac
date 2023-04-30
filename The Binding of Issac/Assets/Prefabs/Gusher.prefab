@@ -268,6 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  isLive: 0
+  _clip: {fileID: 8300000, guid: 00dc4af5638fd6b42b4bdc86260e6cf1, type: 3}
 --- !u!114 &1953978433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0e13ce968bb3e478003d406e5fac3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0.5
+  _damage: 1
 --- !u!114 &1953978434
 MonoBehaviour:
   m_ObjectHideFlags: 0

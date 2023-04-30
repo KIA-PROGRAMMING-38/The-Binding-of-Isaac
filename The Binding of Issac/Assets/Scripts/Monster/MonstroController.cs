@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MonstroController : MonoBehaviour
@@ -11,7 +12,8 @@ public class MonstroController : MonoBehaviour
 	public Transform _player;
 	public Transform _shotPoint;
 	private Rigidbody2D _rigid;
-	private Animator _animaotr;
+	public Animator _animaotr;
+	public Animator _deathAnim;
 	private Collider2D _collider;
 	MonsterController _monsterController;
 	WaitForSeconds _waitForSeconds;
@@ -21,7 +23,6 @@ public class MonstroController : MonoBehaviour
 		_monsterController = GetComponent<MonsterController>();
 		_waitForSeconds = new WaitForSeconds(1f);
 		_collider = GetComponent<Collider2D>();
-		_animaotr = GetComponent<Animator>();
 		_rigid = GetComponent<Rigidbody2D>();
 	}
 
@@ -47,7 +48,7 @@ public class MonstroController : MonoBehaviour
 
 	IEnumerator Think()
 	{
-		if (_monsterController.isLive == false)
+		if (_monsterController.isLive == false && PlayerController.isDie == false)
 		{
 			yield return new WaitForSeconds(1f);
 
@@ -101,6 +102,7 @@ public class MonstroController : MonoBehaviour
 		transform.position = targetPos;
 		_collider.enabled = true;
 		_animaotr.SetTrigger("MoveEnd");
+		FindObjectOfType<AudioManager>().Play("BossJumpDown");
 
 		yield return _waitForSeconds;
 		StartCoroutine(Think());
@@ -139,6 +141,7 @@ public class MonstroController : MonoBehaviour
 
 		_animaotr.SetTrigger("JumpEnd");
 		transform.position = new Vector2(playerPos.x, playerPos.y);
+		FindObjectOfType<AudioManager>().Play("BossJumpDown");
 
 		yield return _waitForSeconds;
 		StartCoroutine(Think());
@@ -156,10 +159,17 @@ public class MonstroController : MonoBehaviour
 			Rigidbody2D rigid = bloodTears.GetComponent<Rigidbody2D>();
 			rigid.velocity = direction * tearSpeed; // 총알 속도 설정
 		}
+
+		FindObjectOfType<AudioManager>().Play("BossAttack");
 	}
 
 	private void OnEnable()
 	{
 		//_player = GameManager._instance._player.GetComponent<Transform>();
+	}
+
+	void DeadSounds()
+	{
+		FindObjectOfType<AudioManager>().Play("BossDeath");
 	}
 }

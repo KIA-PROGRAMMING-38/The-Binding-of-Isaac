@@ -55,6 +55,7 @@ public class Tears : MonoBehaviour
 		_animator.SetBool("Burst", false);
 		_curved = false;
 		_elpasedTime = 0;
+
 	}
 
 	void OffAnim()
@@ -65,5 +66,10 @@ public class Tears : MonoBehaviour
 	void StopTear()
 	{
 		_tearRigidbody.velocity = Vector2.zero;
+	}
+
+	void BlockingSound()
+	{
+		FindObjectOfType<AudioManager>().Play("TearBlock");
 	}
 }

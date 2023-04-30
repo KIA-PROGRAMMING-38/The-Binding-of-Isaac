@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	public static bool isDie = false;
+
 	// public float health { get { return currentHealth; }}
 	public float baseHealth = 3;
 	public float maxHealth = 12;
@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] private float maxSpeed = 10f;
 	[SerializeField] private float friction = 2f;
-
-	bool isDie = false;
 
 	public GameObject _headObject;
 	private Animator _headAnimator;
@@ -30,28 +28,31 @@ public class PlayerController : MonoBehaviour
 		_rigid = GetComponent<Rigidbody2D>();
 	}
 	void Start()
-    {
+	{
 		currentHealth = baseHealth;
 		currentMaxHealth = baseHealth;
 		Debug.Log(currentHealth);
-    }
+	}
 
-    void FixedUpdate()
+	void FixedUpdate()
 	{
-		Vector2 direction = new Vector2(_playerInput.Horizontal, _playerInput.Vertical).normalized;
-
-		if (direction.magnitude > 0f)
+		if (isDie == false)
 		{
-			_rigid.velocity = direction * moveSpeed;
+			Vector2 direction = new Vector2(_playerInput.Horizontal, _playerInput.Vertical).normalized;
 
-			if (_rigid.velocity.magnitude > maxSpeed)
+			if (direction.magnitude > 0f)
 			{
-				_rigid.velocity = _rigid.velocity.normalized * maxSpeed;
+				_rigid.velocity = direction * moveSpeed;
+
+				if (_rigid.velocity.magnitude > maxSpeed)
+				{
+					_rigid.velocity = _rigid.velocity.normalized * maxSpeed;
+				}
 			}
-		}
-		else
-		{
-			_rigid.velocity -= _rigid.velocity * friction * Time.fixedDeltaTime;
+			else
+			{
+				_rigid.velocity -= _rigid.velocity * friction * Time.fixedDeltaTime;
+			}
 		}
 	}
 
@@ -77,6 +78,16 @@ public class PlayerController : MonoBehaviour
 
 	void Die()
 	{
+		FindObjectOfType<AudioManager>().Play("PlayerDeath");
+		FindObjectOfType<AudioManager>().Stop("Theme");
+		isDie = true;
+		_rigid.velocity = Vector2.zero;
 		_headAnimator.SetTrigger("PlayerDead");
+		StartCoroutine(WatingDiesTime());
 	}
-}	
+
+	IEnumerator WatingDiesTime()
+	{
+		yield return new WaitForSeconds(1f);
+	}
+}
