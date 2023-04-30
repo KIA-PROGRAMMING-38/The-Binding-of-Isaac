@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1379553075}
-  - component: {fileID: 1379553077}
   - component: {fileID: 1379553076}
+  - component: {fileID: 1752359559}
   m_Layer: 16
   m_Name: DeadAnim
   m_TagString: Untagged
@@ -33,27 +33,6 @@ Transform:
   m_Father: {fileID: 6880314056349903407}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1379553077
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379553074}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 69e0de998ccc19341b8915d7f593a5ac, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1379553076
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,12 +79,33 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 1.2}
+  m_Size: {x: 1.47, y: 1.03}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1752359559
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379553074}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69e0de998ccc19341b8915d7f593a5ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3680522689034293796
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,8 +293,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 250
   isLive: 0
-  _clip: {fileID: 0}
-  _clip2: {fileID: 8300000, guid: 4b1deb9a5ff7ccf4dbc9b9e29fdddc27, type: 3}
 --- !u!114 &157183168482752434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,10 +306,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tearSpeed: 5
-  numberOfTears: 8
+  numberOfTears: 6
   _tearsPrefabs: {fileID: 5597280055346104453, guid: 8e2be5bc3bb5df149be815cb79320eb1, type: 3}
   _player: {fileID: 0}
   _shotPoint: {fileID: 8931545495805671845}
+  _animaotr: {fileID: 5186398118013441751}
+  _deathAnim: {fileID: 1752359559}
 --- !u!1 &8000699340123668777
 GameObject:
   m_ObjectHideFlags: 0

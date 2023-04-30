@@ -12,7 +12,8 @@ public class MonstroController : MonoBehaviour
 	public Transform _player;
 	public Transform _shotPoint;
 	private Rigidbody2D _rigid;
-	private Animator _animaotr;
+	public Animator _animaotr;
+	public Animator _deathAnim;
 	private Collider2D _collider;
 	MonsterController _monsterController;
 	WaitForSeconds _waitForSeconds;
@@ -22,7 +23,6 @@ public class MonstroController : MonoBehaviour
 		_monsterController = GetComponent<MonsterController>();
 		_waitForSeconds = new WaitForSeconds(1f);
 		_collider = GetComponent<Collider2D>();
-		_animaotr = GetComponent<Animator>();
 		_rigid = GetComponent<Rigidbody2D>();
 	}
 

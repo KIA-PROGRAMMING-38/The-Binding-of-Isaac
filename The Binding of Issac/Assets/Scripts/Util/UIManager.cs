@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
 	public static bool isPaused = false;
 	public GameObject _menuSet;
 	public GameObject _DeadMenu;
+	int gameScene = 1;
 
 	void Update()
     {
@@ -27,6 +30,19 @@ public class UIManager : MonoBehaviour
 		{
 			StartCoroutine(WaitingMenu());
 		}
+
+		if (_DeadMenu.activeSelf)
+		{
+			if (Input.GetKeyDown (KeyCode.Escape))
+			{
+				Application.Quit();
+			}
+			if (Input.GetKeyDown (KeyCode.Return))
+			{
+				PlayerController.isDie = false;
+				SceneManager.LoadScene(gameScene);
+			}
+		}
     }
 
 	public void Resume()
@@ -45,7 +61,7 @@ public class UIManager : MonoBehaviour
 
 	public void QuitGame()
 	{
-
+		Application.Quit();
 	}
 
 	IEnumerator WaitingMenu()

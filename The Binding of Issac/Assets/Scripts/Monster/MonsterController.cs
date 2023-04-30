@@ -13,6 +13,7 @@ public class MonsterController : MonoBehaviour
 	Collider2D _collider;
 	Animator _animator;
 	WaitForSeconds _waitForSeconds;
+	MonstroController _mostroController;
 
 
 	private void Awake()
@@ -20,6 +21,7 @@ public class MonsterController : MonoBehaviour
 		_waitForSeconds = new WaitForSeconds(0.1f);
 		_collider = GetComponent<Collider2D>();
 		_animator = GetComponent<Animator>();
+		_mostroController = GetComponent<MonstroController>();
 		_spriteRenderer = GetComponent<SpriteRenderer>();
 		_monsterRb = GetComponent<Rigidbody2D>();
 		_playerController = GameObject.Find("Isaac_Body").GetComponent<PlayerController>();
@@ -40,6 +42,7 @@ public class MonsterController : MonoBehaviour
 			if (health <= 0)
 			{
 				_animator.SetTrigger("Dead");
+				_mostroController._deathAnim.SetTrigger("DeathEffect");
 				isLive = true;
 			    _collider.enabled = false;
 				FindObjectOfType<AudioManager>().Play("MonsterDeath");
