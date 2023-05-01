@@ -17,10 +17,12 @@ public class MonstroController : MonoBehaviour
 	private Collider2D _collider;
 	MonsterController _monsterController;
 	WaitForSeconds _waitForSeconds;
+	WaitForSeconds _waitForSecondsHalf;
 
 	private void Awake()
 	{
 		_monsterController = GetComponent<MonsterController>();
+		_waitForSecondsHalf = new WaitForSeconds(0.5f);
 		_waitForSeconds = new WaitForSeconds(1f);
 		_collider = GetComponent<Collider2D>();
 		_rigid = GetComponent<Rigidbody2D>();
@@ -50,7 +52,7 @@ public class MonstroController : MonoBehaviour
 	{
 		if (_monsterController.isLive == false && PlayerController.isDie == false)
 		{
-			yield return new WaitForSeconds(1f);
+			yield return _waitForSeconds;
 
 			int ranAction = Random.Range(0, 6);
 
@@ -81,7 +83,7 @@ public class MonstroController : MonoBehaviour
 	IEnumerator Move()
 	{
 		_animaotr.SetTrigger("JumpReady");
-		yield return new WaitForSeconds(0.5f);
+		yield return _waitForSecondsHalf;
 
 		_animaotr.SetTrigger("JumpMove");
 		Vector2 startPos = transform.position;
@@ -111,7 +113,7 @@ public class MonstroController : MonoBehaviour
 	IEnumerator Attack()
 	{
 		_animaotr.SetTrigger("Shot");
-		yield return new WaitForSeconds(0.5f);
+		yield return _waitForSecondsHalf;
 
 		yield return _waitForSeconds;
 		StartCoroutine(Think());
@@ -120,7 +122,7 @@ public class MonstroController : MonoBehaviour
 	IEnumerator JumpAttack()
 	{
 		_animaotr.SetTrigger("JumpReady");
-		yield return new WaitForSeconds(0.5f);
+		yield return _waitForSecondsHalf;
 
 		_animaotr.SetTrigger("JumpUp");
 		_rigid.velocity = new Vector2(0, 50f);

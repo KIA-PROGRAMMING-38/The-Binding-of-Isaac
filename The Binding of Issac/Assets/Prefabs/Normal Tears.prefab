@@ -159,7 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 3.5
-  _clip: {fileID: 8300000, guid: e91233e8e1b6db64ea1e16687ec1e1f1, type: 3}
   _dropTime: 0.9
   _dropSpeed: 0.2
   _moveDirection: {x: 0, y: 0}

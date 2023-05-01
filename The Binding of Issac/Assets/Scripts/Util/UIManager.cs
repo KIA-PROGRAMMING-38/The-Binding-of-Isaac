@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
 			{
 				Application.Quit();
 			}
-			if (Input.GetKeyDown (KeyCode.Return))
+			if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.Space))
 			{
 				PlayerController.isDie = false;
 				SceneManager.LoadScene(gameScene);
